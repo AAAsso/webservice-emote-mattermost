@@ -8,8 +8,7 @@ extern crate rocket;
 
 #[cfg(test)] mod tests;
 
-use rocket_contrib::Template;
-use rocket_contrib::{Json, JsonValue};
+use rocket_contrib::{Json, Value};
 use rocket::State;
 use std::collections::HashMap;
 use std::sync::Mutex;
@@ -24,11 +23,11 @@ struct MattemostSlashcommandRequest {
 }
 
 #[get("/shrug")]
-fn shrug() -> JsonValue {
-    json!({
+fn shrug() -> Json<Value> {
+    Json(json!({
         "response_type": "in_channel",
         "text": format!("{} ¯\\_(ツ)_/¯", "message")
-    })
+    }))
 }
 
 fn main() {
