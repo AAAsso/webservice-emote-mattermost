@@ -9,17 +9,22 @@ extern crate rocket;
 #[cfg(test)] mod tests;
 
 use rocket_contrib::{Json, Value};
-use rocket::State;
-use std::collections::HashMap;
-use std::sync::Mutex;
 
 type ID = usize;
 
 #[derive(Serialize, Deserialize)]
 struct MattemostSlashcommandRequest {
     id: Option<ID>,
-    response_type: String,
-    text: String
+    channel_id: String,
+    channel_name: String,
+    command:String,
+    response_url:String,
+    team_domain:String,
+    team_id:String,
+    text:String,
+    token:String,
+    user_id:String,
+    user_name:String
 }
 
 #[get("/shrug")]
