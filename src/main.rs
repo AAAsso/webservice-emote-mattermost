@@ -34,7 +34,21 @@ fn shrug() -> Json<Value> {
         "text": format!("{} ¯\\_(ツ)_/¯", "message")
     }))
 }
+#[error(404)]
+fn not_found() -> Json<Value> {
+    Json(json!({
+        "status": "error",
+        "reason": "Resource was not found."
+    }))
+}
+
+fn rocket() -> rocket::Rocket {
+    rocket::ignite()
+        .mount("/api", routes![shrug])
+        .catch(errors![not_found])
+}
 
 fn main() {
-	rocket::ignite().mount("/api", routes![shrug]).launch();
+    rocket().launch();
 }
+     
