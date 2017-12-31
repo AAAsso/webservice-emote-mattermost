@@ -18,20 +18,23 @@ app.post('/api/emojo', function (req, res) {
 	let response = {
 		response_type: 'in_channel'
 	};
-	if (req.body.command === '/shrug') {
+	switch (req.body.command) {
+		case '/shrug':
 			response.text = req.body.text + " ¯\\_(ツ)_/¯";
-	} else if (req.body.command === '/dearGod') {
-		response.text = req.body.text + " щ（ﾟДﾟщ）";	
-	} else if (req.body.command === '/seal') {
-		response.text = req.body.text + " ᶘ ᵒᴥᵒᶅ";	
-	} else if (req.body.command === '/flip') {
-		response.text = req.body.text + " ╯‵Д′)╯彡┻━┻";
-	} else {
-		response = {
-			response_type: 'error',
-			text: 'Command not found'
-		};
+			break;
+		case '/dearGod':
+			response.text = req.body.text + " щ（ﾟДﾟщ）";
+			break;
+		case '/seal':
+			response.text = req.body.text + " ᶘ ᵒᴥᵒᶅ";
+			break;
+		case '/flip':
+			response.text = req.body.text + " ╯‵Д′)╯彡┻━┻";
+			break;
+		default:
+			response = {response_type: 'error', text: 'Command not found'};
 	}
+
 	res.send(response);
 })
 
