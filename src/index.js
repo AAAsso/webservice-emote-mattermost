@@ -11,6 +11,8 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
+let port = 8000;
+
 /**
  * Emojo endpoint : return the emojo when summoned
  */
@@ -18,11 +20,12 @@ app.post('/api/emojo', function (req, res) {
 	let response = {
 		response_type: 'in_channel'
 	};
+
 	switch (req.body.command) {
 		case '/shrug':
 			response.text = req.body.text + " ¯\\_(ツ)_/¯";
 			break;
-		case '/dearGod':
+		case '/deargod ':
 			response.text = req.body.text + " щ（ﾟДﾟщ）";
 			break;
 		case '/seal':
@@ -43,4 +46,5 @@ app.post('/api/emojo', function (req, res) {
  * add a /api/emojo/add endpoint storing emojo in database
  */
 
-app.listen(8000);
+app.listen(port);
+console.log("Serveur listenting on port " + port);
