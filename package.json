@@ -1,0 +1,23 @@
+{
+  "name": "webservice-emote-mattermost",
+  "version": "1.0.0",
+  "description": "API for mattermost command",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "run": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AAAsso/webservice-emote-mattermost.git"
+  },
+  "author": "s18alg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AAAsso/webservice-emote-mattermost/issues"
+  },
+  "homepage": "https://github.com/AAAsso/webservice-emote-mattermost#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
