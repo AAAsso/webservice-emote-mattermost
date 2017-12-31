@@ -20,11 +20,11 @@ app.post('/api/emojo', function (req, res) {
 	};
 	if (req.body.command === '/shrug') {
 			response.text = req.body.text + " ¯\\_(ツ)_/¯";
-	} if (req.body.command === '/dearGod') {
+	} else if (req.body.command === '/dearGod') {
 		response.text = req.body.text + " щ（ﾟДﾟщ）";	
-	} if (req.body.command === '/seal') {
+	} else if (req.body.command === '/seal') {
 		response.text = req.body.text + " ᶘ ᵒᴥᵒᶅ";	
-	} if (req.body.command === '/flip') {
+	} else if (req.body.command === '/flip') {
 		response.text = req.body.text + " ╯‵Д′)╯彡┻━┻";
 	} else {
 		response = {
