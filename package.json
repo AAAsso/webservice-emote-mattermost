@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/AAAsso/webservice-emote-mattermost#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mattermost": "^3.4.0",
+    "sqlite3": "^3.1.13"
   }
 }
