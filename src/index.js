@@ -65,14 +65,22 @@ app.post('/api/emojo/add', function(req, res) {
 
 		console.log("Adding " + req.body.command + " " + req.body.text);
 
-		console.log(req.body);
-		insert_emojo.run(req.body.command, req.body.text);
-		insert_emojo.finalize();
+		let arg = req.body.text.split(" ");
 
-		res.send({
-			response_type: 'ephemeral',
-			text: 'Emojo inserted, add the corresponding slash command to enable it'
-		});
+		if (arg.length  > 1) {
+			insert_emojo.run("/" + arg[0], arg[1]);
+			insert_emojo.finalize();
+
+			res.send({
+				response_type: 'ephemeral',
+				text: 'Emojo inserted, add the corresponding slash command to enable it'
+			});
+		} else {
+			res.send({
+				response_type: 'ephemeral',
+				text: 'Incorrect argument'
+			});
+		}
 	} else {
 		res.send({
 			response_type: 'error',
